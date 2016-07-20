@@ -11,7 +11,7 @@ package coches;
  */
 public interface Gps {
        
-    void localizarPoscion();
+    void localizarPosicion();
     
     void buscarCaminoCorto();
     

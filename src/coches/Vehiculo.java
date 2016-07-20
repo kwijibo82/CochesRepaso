@@ -16,6 +16,7 @@ public class Vehiculo {
     
     String tipo;
     int masa;
+    String id;
     
     /**
      * Private: Permite solo el acceso a los usuarios de la misma clase
@@ -24,7 +25,6 @@ public class Vehiculo {
      * Public: Permite el acceso a todos los usuarios
      */
     
-    
     //Es una buena práctica crear un construtor en blanco
     public Vehiculo(){
         
@@ -32,10 +32,11 @@ public class Vehiculo {
     
     //Para abrir la ventana emergente utilizamos el atajo de teclado
     //CTRL + espacio
-    public Vehiculo(String tipo, int masa){
+    public Vehiculo(String tipo, int masa, String id){
         
         this.tipo = tipo; //Referencia el parámetro al atributo de la clase
         this.masa = masa;
+        this.id = id;
     }
 
     @Override
@@ -52,6 +53,9 @@ public class Vehiculo {
         sb.append("\n");
         sb.append("Tipo: ");
         sb.append(tipo);
+        sb.append("\n");
+        sb.append("Id: ");
+        sb.append(id);
         
         return sb.toString();
     }
@@ -73,6 +77,15 @@ public class Vehiculo {
     public void setMasa(int masa) {
         this.masa = masa;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
     
     
 }

@@ -36,19 +36,17 @@ public abstract class Seguridad {
      * @param velocidad
      * @return 
      */
-    public static boolean velocidadMaxima(int velocidad) {
+    public boolean velocidadMaxima(int velocidad) {
         
-        /*alertaVelocidad = false;
+        alertaVelocidad = false;
         
         if (velocidad > 100) {
             
             alertaVelocidad = true;
             
         }
-        */
-        return true;
         
-       // return alertaVelocidad;
+        return alertaVelocidad;
     }
     
 }

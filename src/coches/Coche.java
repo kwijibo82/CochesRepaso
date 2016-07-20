@@ -20,11 +20,11 @@ public class Coche extends Vehiculo implements Gps, Audio {
     String modelo;
 
     public Coche(String matricula, String marca, 
-            String modelo, String tipo, int masa) {
+            String modelo, String tipo, int masa, String id) {
         
         //El constructor super está llamando a la clase padre
         //y pasándole los parámetros String tipo y int masa
-        super(tipo, masa);
+        super(tipo, masa, id);
         
         this.matricula = matricula;
         this.marca = marca;
@@ -42,6 +42,9 @@ public class Coche extends Vehiculo implements Gps, Audio {
         
         StringBuilder sb = new StringBuilder();
         
+        sb.append("Vehiculo id:");
+        sb.append(id);
+        sb.append("\n---------------\n");
         sb.append("Matricula: ");
         sb.append(matricula);
         sb.append("\n");
@@ -61,11 +64,12 @@ public class Coche extends Vehiculo implements Gps, Audio {
         sb.append("Masa: ");
         sb.append(masa);
         
+        sb.append("\n---------------\n");
+        
         return sb.toString();
         
     }
 
-    
     //MÉTODOS GETTERS Y SETTERS
     public String getMatricula() {
         return matricula;
@@ -96,7 +100,7 @@ public class Coche extends Vehiculo implements Gps, Audio {
     //MÉTODOS
     
     @Override
-    public void localizarPoscion() {
+    public void localizarPosicion() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -123,8 +127,6 @@ public class Coche extends Vehiculo implements Gps, Audio {
     @Override
     public void bajarVolumen() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
+    } 
     
 }
