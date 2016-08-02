@@ -5,6 +5,7 @@
  */
 package coches;
 
+import ExcepcionesPropias.NoExisteElementoException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,19 +21,28 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, NoExisteElementoException  {
                
         //He añadido un último campo a modo de ID
        Coche c1 = new Coche("1111AAA", "Ford", "Focus", "Utilitario"
-                , 1900, "A01");
+                ,1900, "A01");
        Coche c2 = new Coche("2222BBB", "Opel", "Tigra", "Deportivo"
-                , 1900, "B02");
+                , 1850, "B02");
        Coche c3 = new Coche("3333CCC", "Audi", "A3", "Utilitario"
-                , 1900, "C03");
+                , 2000, "C03");
        Coche c4 = new Coche("4444DDD", "Toyota", "RAV4", "Todoterreno"
-                , 1900, "D04");
+                , 2100, "D04");
        Coche c5 = new Coche("5555EEE", "Renault", "Twingo", "Utilitario"
                 , 1900, "E05");
+       
+       //test de los métodos compareTo() y compare()
+       
+       int res1 = c5.compare(c4, c2);
+       System.out.println("Resultado compare() : " + res1);
+       
+       int res = c5.compareTo(c5);
+       System.out.println("Resultado compareTo() : " + res);
+       
        
        //llamamos al método que guarda los vehículos
         guardarvehiculo(c1);
@@ -52,6 +62,9 @@ public class Main {
         //borramos un objeto, por el correspondiente al ID: D04
         buscarYBorrarVehiculos("D04");
         
+        //Test de excepciones propias
+        //buscarYBorrarVehiculos("AAA");
+        
         //mostramos vehículos por pantalla para comprobar que se
         //ha borrado correctamente
         imprimirVehiculosPorPantalla();
@@ -69,7 +82,7 @@ public class Main {
         //APUNTES DE OTRAS SESIONES:
         //La clase Object es la padre de todas las clases
         //Se heredan dos métodos, el método equals()
-        //y el método toString()
+        //y el método toString()       
         
     }
     
@@ -125,7 +138,9 @@ public class Main {
      * del arrayList de vehículos
      * @param vehiculoABorrar 
      */
-    public static void buscarYBorrarVehiculos(String id)
+    public static void buscarYBorrarVehiculos(String id) 
+            throws NoExisteElementoException  //Lanzamos la exception
+                                              //en el método
     {
         boolean borrado = false;
         
@@ -148,8 +163,11 @@ public class Main {
         if (!borrado) {
             
             //TODO: Programar una excepción propia
-            System.out.println("No se ha encontrado ningún objeto "
-                        + "con esa ID.");
+            //System.out.println("No se ha encontrado ningún objeto "
+                      //  + "con esa ID.");
+            
+            throw new NoExisteElementoException("No se ecuentra ningún elemento"
+                    + " con ese nombre ");
             
         }
         

@@ -5,6 +5,8 @@
  */
 package coches;
 
+import java.util.Comparator;
+
 /**
  *
  * @author Javi
@@ -121,12 +123,13 @@ public class Coche extends Vehiculo implements Gps, Audio {
 
     @Override
     public void subirVolumen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void bajarVolumen() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     } 
+
     
 }
